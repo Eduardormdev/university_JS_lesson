@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Javascript Faculdade Anhanguera - Eduardo Roberto Mendes de Freitas </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/javascript/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mask-plugin/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.6.0/validator.min.js"></script>
+</head>
+    <header class="bg-zinc-200 w-full h-24 border-2 border-[#c7ecff]">
+        <div class="header_text_content flex justify-center items-center content-around h-full ">
+            <h1 class="text-2xl  italic font-bold text-black-500 text-balance text-center">Trabalho Javascript - Eduardo Roberto M. De Freitas</h1>
+        </div>
+    </header>
+    <!-- Eu aproveitei para aprender um pouco de tailwind no processo espero que não seja incomodo. -->
+    <body class="bg-neutral-50 w-full">  
+        <div class="bg-gray-200 w-3/4 mx-auto my-10 p-10  rounded-xl   shadow-xl">
+            <form class="email_form w-100"><!--Formulario Jquery-->
+                <div class="labels_email_form flex content-around flex-wrap justify-between"> 
+                    <label  class=" justify-left mb-2 font-medium" for="email_form_input">Digite seu email*</label>
+                    <span class="email_form_error justify-right hidden text-red-500" id="email-error" > </span>
+                </div>
+                <input  class="email_form_input block w-full p-2 text-gray-900 border border-gray-300 rounded-lg font-medium hover:border-2 hover:border-blue-500 focus:border-blue-500" type="email" id="email" maxlength="256" placeholder="email@gmail.com">
+                <button class="email_form_buttton block mt-2 mx-auto w-36 border border-[#858585] uppercase p-1  rounded-lg hover:bg-[#000] hover:text-[#fff] hover:border-emerald-200 hover:border-2 font-medium" type="submit"  value="Enviar">Enviar</button>
+            </form>
+            <form class="email_form_2 w-100"><!--Formulario Livraria que faz a validação-->
+                <div class="labels_email_form flex content-around flex-wrap justify-between"> 
+                    <label  class=" justify-left mb-2 font-medium" for="email_form_input">Digite seu email*</label>
+                    <span class="email_form_error_2 justify-right hidden text-red-500" id="email-error_2" > </span>
+                </div>
+                <input  class="email_form_input_2 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg font-medium hover:border-2 hover:border-blue-500 focus:border-blue-500" type="text" id="email_2" maxlength="256" placeholder="email@gmail.com">
+                <button class="email_form_buttton_2 block mt-2 mx-auto w-36 border border-[#858585] uppercase p-1  rounded-lg hover:bg-[#000] hover:text-[#fff] hover:border-emerald-200 hover:border-2 font-medium" type="submit"  value="Enviar">Enviar</button>
+            </form>
+            <div class="email_form_3 w-100"><!--Formulario Puro js -->
+                <div class="labels_email_form flex content-around flex-wrap justify-between"> 
+                    <label  class=" justify-left mb-2 font-medium" for="email_form_input">Digite seu email*</label>
+                    <span class="email_form_error_3 justify-right hidden text-red-500" id="email-error_3" > </span>
+                </div>
+                <input  class="email_form_input_3 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg font-medium hover:border-2 hover:border-blue-500 focus:border-blue-500" type="text" id="email_3" maxlength="256" placeholder="email@gmail.com">
+                <button class="email_form_buttton_3 block mt-2 mx-auto w-36 border border-[#858585] uppercase p-1  rounded-lg hover:bg-[#000] hover:text-[#fff] hover:border-emerald-200 hover:border-2 font-medium" type="submit"  value="Enviar" id="email_form_button_3" >Enviar</button>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+function VerifyEmail() {
+    event.preventDefault();
+    
+
+    var emailValue = document.getElementById('email_3').value.trim();
+    var errorMessage = document.getElementById('email-error_3');
+    
+    
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+        errorMessage.style.display = 'none';
+        alert('E-mail enviado com sucesso!');
+    } else {
+        if (emailValue == '') {
+            errorMessage.textContent = 'Digite o E-mail';
+        } else {
+            errorMessage.textContent = 'E-mail inválido';
+        }
+        errorMessage.style.display = 'block';
+        document.getElementById('email_3').classList.add('border-red-500');
+    }
+};
+document.getElementById("email_form_button_3").onclick = function() {
+    VerifyEmail();
+};
+</script>
